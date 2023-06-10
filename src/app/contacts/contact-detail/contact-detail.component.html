@@ -1,0 +1,90 @@
+<div class="container mt-5">
+    <div class="py-3">
+        <h1 class="head_4 mb-0">{{title}}</h1>
+    </div>
+    <div class="row">
+        <form [formGroup]="contactForm">
+            <div class="mb-3">
+                <label for="FirstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="FirstName" formControlName="FirstName"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['FirstName']?.touched && contactFormCtrls?.['FirstName']?.errors?.['required']">
+                First Name is required.
+            </div>
+            <div class="mb-3">
+                <label for="LastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="LastName" formControlName="LastName"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['LastName']?.touched && contactFormCtrls?.['LastName']?.errors?.['required']">
+                Last Name is required.
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="Email" formControlName="Email"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['Email']?.touched && contactFormCtrls?.['Email']?.errors?.['required']">
+                Email is required.
+            </div>
+            <div *ngIf="contactFormCtrls?.['Email']?.errors?.['email']">
+                Email is invalid
+            </div>
+            <div class="mb-3">
+                <label for="PhoneNumber" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="PhoneNumber" formControlName="PhoneNumber"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['PhoneNumber']?.touched && contactFormCtrls?.['PhoneNumber']?.errors?.['required']">
+                PhoneNumber is required.
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="Address" formControlName="Address"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['Address']?.touched && contactFormCtrls?.['Address']?.errors?.['required']">
+                Address is required.
+            </div>
+            <div class="mb-3">
+                <label for="City" class="form-label">City</label>
+                <input type="text" class="form-control" id="City" formControlName="City"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['City']?.touched && contactFormCtrls?.['City']?.errors?.['required']">
+                City is required.
+            </div>
+            <div class="mb-3">
+                <label for="State" class="form-label">State</label>
+                <input type="text" class="form-control" id="State" formControlName="State"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['State']?.touched && contactFormCtrls?.['State']?.errors?.['required']">
+                State is required.
+            </div>
+            <div class="mb-3">
+                <label for="Country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="Country" formControlName="Country"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['Country']?.touched && contactFormCtrls?.['Country']?.errors?.['required']">
+                Country is required.
+            </div>
+            <div class="mb-3">
+                <label for="PostalCode" class="form-label">PostalCode</label>
+                <input type="text" class="form-control" id="PostalCode" formControlName="PostalCode"
+                    [readonly]="this.contactService.readOnly">
+            </div>
+            <div *ngIf="contactFormCtrls?.['PostalCode']?.touched && contactFormCtrls?.['PostalCode']?.errors?.['required']">
+                PostalCode is required.
+            </div>
+            <button *ngIf="!this.contactService.readOnly && this.formAction=='add'"
+                [disabled]="this.contactForm.invalid" (click)="onSave()" type="button"
+                class="btn btn-primary">Submit</button>
+            <button *ngIf="!this.contactService.readOnly && this.formAction=='edit'" (click)="onUpdate()" type="button"
+                class="btn btn-primary">Update</button>
+            <button type="button" (click)="navigateBack()" class="m-3 btn btn-outline-primary">Back</button>
+        </form>
+    </div>
+</div>
